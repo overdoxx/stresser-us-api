@@ -30,7 +30,7 @@ app.post('/api/start', async (req, res) => {
     try {
         for (let i = 0; i < repetitions; i++) {
             for (let j = 0; j < concurrents; j++) {
-                const url = `https://darlingapi.com?token=${token}&host=${host}&port=${port}&time=${time}&method=${method}`;
+                const url = `https://darlingapi.com?token=${token}&host=${host}&port=${port}&time=${maxTime}&method=${method}`;
                 console.log(`Sending request: ${url}`);
                 await axios.get(url);
             }
