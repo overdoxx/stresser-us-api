@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Stresser</title>
+</head>
+<body>
+    <div class="container">
+        <div class="main-content">
+            <div class="form-container">
+                <form id="apiForm">
+                    <label for="host">Host:</label>
+                    <input type="text" id="host" name="host" required>
+                    
+                    <label for="port">Port:</label>
+                    <input type="number" id="port" name="port" required>
+                    
+                    <label for="time">Time (seconds):</label>
+                    <input type="number" id="time" name="time" required>
+                    
+                    <label for="method">Method:</label>
+                    <select id="method" name="method">
+                        <option value="HTTP-POWER">HTTP-POWER</option>
+                        <option value="HTTP-STORM">HTTP-STORM</option>
+                        <option value="HTTP-BETA">HTTP-BETA</option>
+                        <option value="HTTP1-RAW">HTTP1-RAW</option>
+                        <option value="HTTP2-RAW">HTTP2-RAW</option>
+                        <option value="UDP-MIX">UDP-MIX</option>
+                        <option value="UDP-DNS">UDP-DNS</option>
+                        <option value="UDP-ARD">UDP-ARD</option>
+                        <option value="UDP-WSD">UDP-WSD</option>
+                        <option value="UDP-COAP">UDP-COAP</option>
+                        <option value="UDP-SADP">UDP-SADP</option>
+                    </select>
+
+                    <label for="concurrents">Concurrents:</label>
+                    <input type="number" id="concurrents" name="concurrents" min="1" max="6" required>
+                    
+                    <button type="submit" id="startButton">Start</button>
+                </form>
+                <div style="text-align: center;">
+                    <button id="stopButton" style="width: 100%;">Stop All Attacks</button>
+                </div>
+                
+
+            </div>
+            <div class="status-container">
+                <div id="status">
+                    <h2>Status</h2>
+                    <p class="status-update">Waiting for updates...</p>
+                    <div class="status-info">
+                        <table class="status-table">
+                            <thead>
+                                <tr>
+                                    <th>Target</th>
+                                    <th>Method</th>
+                                    <th>Expires (s)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="statusTableBody">
+                              
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
