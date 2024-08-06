@@ -17,7 +17,7 @@ document.getElementById('apiForm').addEventListener('submit', async (event) => {
 });
 
 document.getElementById('stopButton').addEventListener('click', async () => {
-    await fetch('https://darlingapi.com/stop_all?token=90081b3b-36f2-4c03-ada6-525a0149d9a1', {
+    await fetch('/api/stop', {
         method: 'POST'
     });
     document.querySelector('.status-update').innerText = 'All attacks stopped';

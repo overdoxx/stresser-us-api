@@ -22,7 +22,7 @@ io.on('connection', (socket) => {
 
 app.post('/api/start', async (req, res) => {
     const { host, port, time, method, concurrents } = req.body;
-    const token = '90081b3b-36f2-4c03-ada6-525a0149d9a1';
+    const token = 'af1f1818-3541-411f-a643-db88e2c575ff';
     const maxTime = 2700;
     const repetitions = Math.ceil(time / maxTime);
 
@@ -47,7 +47,7 @@ app.post('/api/start', async (req, res) => {
 });
 
 app.post('/api/stop', async (req, res) => {
-  const url = `https://darlingapi.com/stop_all?token=90081b3b-36f2-4c03-ada6-525a0149d9a1`;
+  const url = `https://darlingapi.com/stop_all?token=af1f1818-3541-411f-a643-db88e2c575ff`;
                 console.log(`Stop Attacks`);
                 await axios.get(url);
             
@@ -55,7 +55,7 @@ app.post('/api/stop', async (req, res) => {
 })
 
 app.get('/api/status', async (req, res) => {
-    const token = '90081b3b-36f2-4c03-ada6-525a0149d9a1';
+    const token = 'af1f1818-3541-411f-a643-db88e2c575ff';
     try {
         const response = await axios.get(`https://darlingapi.com/status?token=${token}`);
         res.json(response.data);
